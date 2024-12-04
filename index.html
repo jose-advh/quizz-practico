@@ -1,17 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizz Práctico - José Díaz</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Quizz Práctico - José</title>
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+    <header class="header">
+        <nav class="header__nav">
+            <h2>QUIZZ PRÁCTICO - CRUD</h2>
+            <section>
+                <button id="agregarDatos">Agregar Datos</button>
+                <button id="eliminarDatos">Eliminar Datos</button>
+                <button id="editarDatos">Editar Datos</button>
+            </section>
+        </nav>
+    </header>
     <main class="main">
-        <article class="main__enlaces">
-            <a href="pages/registrarDatos.html">Registrar Datos</a>
-            <a href="pages/consultarDatos.html">Consultar Datos</a>
-        </article>
+            <article class="main__datos" id="mainDatos">
+                <header class="header__datos">
+                    <h2>Cédula / Nit</h2>
+                    <h2>Nombre</h2>
+                    <h2>Dirección</h2>
+                    <h2>Télefono</h2>
+                    <h2>Correo</h2>
+                </header>
+                <section class="contenedor__datos" id="contenedorDatos">
+                    <article class="content__datos" id="datosPersonas">
+                        
+                    </article> 
+                </section>
+            </article>
+            
+
+
+
+
+
+
+
+
+
+            <form action="#" class="formulario ocultar" id="formularioAgregar">
+                <h2>Registrar Datos</h2>
+                <input type="text" placeholder="Nit o Cédula" id="identificacion" name="identificacion">
+                <input type="text" placeholder="Nombre" id="nombre" name="nombre">
+                <input type="text" placeholder="Direccion" id="direccion" name="direccion">
+                <input type="number" placeholder="Telefono" id="telefono" name="telefono">
+                <input type="email" placeholder="Correo" id="correo" name="correo">
+
+                <section class="formulario__buttons">
+                    <button id="enviarDatos" type="submit">Agregar Registro</button>
+                    <button id="cancelarModal">Cancelar</button>
+                </section>
+            </form>
+
+            <form action="#" class="formulario ocultar" id="formularioEliminar">
+                <h2>Eliminar Datos</h2>
+                <input type="text" placeholder="Nit o Cédula" id="identificacionEliminar" name="identificacionEliminar">
+                <section class="formulario__buttons">
+                    <button id="eliminarDatosBtn" type="button">Eliminar Registro</button>
+                    <button id="cancelarEliminar">Cancelar</button>
+                </section>
+            </form>
     </main>
+    <script src="js/datos.js"></script>
 </body>
 </html>

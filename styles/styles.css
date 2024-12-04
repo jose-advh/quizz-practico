@@ -4,23 +4,150 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body {
+    background-color: rgb(238, 236, 236);
+}
+
+.ocultar {
+    display: none !important;
+}
+
+.modal__abierto {
+    filter: blur(2px) !important;
+}
+
+.header__datos {
+    display: flex;
+    border-radius: 10px 10px 0px 0px;
+    padding: 0rem 1rem;
+    border: 1px solid;
+    color: white;
+    background-color: rgb(19, 51, 73);
+    justify-content: space-between;
+}
+
+.header__datos > h2 {
+    flex: 1;
+    font-weight: 500;
+}
+
+.header__nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__nav > section > button {
+    background-color: rgb(255, 209, 108);
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    border-radius: 7px;
+    transition: .5s background ease-in;
+}
+
+.header__nav > button:hover {
+    background-color: orange;
+}
+
+.main__datos {
+    width: 90%;
+    margin: auto;
+}
+
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
 }
 
-.formulario {
+.contenedor {
+    width: 100%;
+    display: flex;
+}
+
+.content__datos {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 0px 0px 10px 10px;
+    padding: 0rem 1rem;
+    margin-bottom: 1px;
+    flex: 1;
+    background-color: gainsboro;
+}
+
+.content__datos > section {
+    display: flex;
+    width: 100%;
+}
+
+.content__datos > section > p {
+    flex: 1;
+}
+
+.main__acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px 0px 10px 10px;
+
+}
+
+.main__acciones > section {
+    padding: 1rem;
+}
+
+.main__acciones > section > button {
+    border: none;
+    border-radius: 15px;
+}
+
+.main__acciones > section > button:first-child {
+    background-color: rgb(139, 139, 25);
+}
+
+.main__acciones > section > button:last-child {
+    background-color: red;
+}
+
+.formulario {
+    position: fixed;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: white;
+    align-items: center;
     gap: 15px;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+}
+
+.formulario__buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.formulario > .formulario__buttons > button {
+    color: white;
+    border-radius: 15px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    padding: 1rem;
 }
 
 .main__formulario {
+    display: flex;
+    flex-direction: column;
     border-radius: 15px;
-    background-color: antiquewhite;
+    background-color: white;
     padding: 1rem;
     width: 40%;
 }
@@ -49,4 +176,11 @@
 
 .main__enlaces > a:hover { 
     background-color: rgb(2, 0, 100);
+}
+
+@media (max-width: 900px) {
+    .formulario {
+        top: 25%;
+        width: 80%;
+    }
 }
