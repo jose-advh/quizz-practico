@@ -54,7 +54,7 @@ body {
 }
 
 .main__datos {
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
@@ -84,6 +84,13 @@ body {
 .content__datos > section {
     display: flex;
     width: 100%;
+}
+
+.content__datos > section > button {
+    border-radius: 5px;
+    padding: 0rem .5rem;
+    border: none;
+    cursor: pointer;
 }
 
 .content__datos > section > p {

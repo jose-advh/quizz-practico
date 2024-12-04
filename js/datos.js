@@ -1,4 +1,11 @@
 let datos = [];
+datos.push(
+    { identificacion: 1, nombre: 'Juan Pérez', direccion: 'Calle 123', telefono: '3001234567', correo: 'juan@email.com' },
+    { identificacion: 2, nombre: 'Ana Gómez', direccion: 'Avenida 456', telefono: '3109876543', correo: 'ana@email.com' },
+    { identificacion: 3, nombre: 'Carlos López', direccion: 'Carrera 789', telefono: '3201122334', correo: 'carlos@email.com' },
+    { identificacion: 4, nombre: 'Laura Rodríguez', direccion: 'Callejón 321', telefono: '3009988776', correo: 'laura@email.com' },
+    { identificacion: 5, nombre: 'Pedro Sánchez', direccion: 'Plaza 654', telefono: '3145566778', correo: 'pedro@email.com' }
+);
 
 const modalAgregar = document.getElementById('agregarDatos');
 const modalEliminar = document.getElementById('eliminarDatos');
@@ -91,36 +98,36 @@ function eliminarDato() {
 function abrirModalEditar(identificacion) {
     const dato = datos.find(d => d.identificacion === identificacion);
     if (dato) {
-        document.getElementById('identificacion').value = dato.identificacion;
-        document.getElementById('nombre').value = dato.nombre;
-        document.getElementById('direccion').value = dato.direccion;
-        document.getElementById('telefono').value = dato.telefono;
-        document.getElementById('correo').value = dato.correo;
-        abrirModal('formularioEditar'); // Reutiliza el modal de agregar para editar
-        botonEnviar.onclick = function(event) {
-            actualizarDato(identificacion, event);
-        };
+        document.getElementById('identificacionEditar').value = dato.identificacion; // Llenar el campo de identificación
+        document.getElementById('nombreEditar').value = dato.nombre; // Llenar el campo de nombre
+        document.getElementById('direccionEditar').value = dato.direccion; // Llenar el campo de dirección
+        document.getElementById('telefonoEditar').value = dato.telefono; // Llenar el campo de teléfono
+        document.getElementById('correoEditar').value = dato.correo; // Llenar el campo de correo
+        abrirModal('formularioEditar'); // Abre el modal de edición
+    } else {
+        alert('No se encontró el dato con esa identificación.'); // Mensaje si no se encuentra el dato
     }
 }
 
-function actualizarDato(identificacion, event) {
-    event.preventDefault();
+function actualizarDato(event) {
+    event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
 
-    const nombre = document.getElementById('nombre').value.trim();
-    const direccion = document.getElementById('direccion').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-    const correo = document.getElementById('correo').value.trim();
+    const identificacion = document.getElementById('identificacionEditar').value.trim(); // Obtener la identificación
+    const nombre = document.getElementById('nombreEditar').value.trim(); // Obtener el nombre
+    const direccion = document.getElementById('direccionEditar').value.trim(); // Obtener la dirección
+    const telefono = document.getElementById('telefonoEditar').value.trim(); // Obtener el teléfono
+    const correo = document.getElementById('correoEditar').value.trim(); // Obtener el correo
 
     if (!nombre || !direccion || !telefono || !correo) {
-        alert('Por favor, complete todos los campos.');
+        alert('Por favor, complete todos los campos.'); // Validar que todos los campos estén llenos
         return;
     }
 
-    const index = datos.findIndex(d => d.identificacion === identificacion);
+    const index = datos.findIndex(d => d.identificacion === identificacion); // Encontrar el índice del dato a actualizar
     if (index !== -1) {
-        datos[index] = { identificacion, nombre, direccion, telefono, correo };
-        renderizarDatos();
-        limpiarYCerrarModal(event, 'formularioAgregar');
+        datos[index] = { identificacion, nombre, direccion, telefono, correo }; // Actualizar el dato
+        renderizarDatos(); // Volver a renderizar los datos
+        cerrarModal('formularioEditar'); // Cerrar el modal
     }
 }
 
@@ -130,7 +137,13 @@ modalAgregar.addEventListener('click', () => abrirModal('formularioAgregar'));
 modalEliminar.addEventListener('click', () => abrirModal('formularioEliminar'));
 botonEnviar.addEventListener('click', validarYEnviarDatos);
 botonEliminar.addEventListener('click', eliminarDato);
-botonActualizar.addEventListener('click', () => abrirModalEditar(identificacion));
-
+botonActualizar.addEventListener('click', () => {
+    const identificacion = prompt("Ingrese la identificación del registro a editar:"); // Solicita la identificación
+    abrirModalEditar(identificacion); // Abre el modal de edición con la identificación proporcionada
+});
+document.getElementById('actualizarDatos').addEventListener('click', actualizarDato);
+document.getElementById('cancelarEditar').addEventListener('click', (event) => {
+    limpiarYCerrarModal(event, 'formularioEditar'); // Cierra el modal y limpia el formulario
+});
 
 renderizarDatos();
