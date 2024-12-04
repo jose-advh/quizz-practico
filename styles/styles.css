@@ -84,6 +84,7 @@ body {
 .content__datos > section {
     display: flex;
     width: 100%;
+    margin-bottom: 2px;
 }
 
 .content__datos > section > button {
