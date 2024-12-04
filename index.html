@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,15 +36,6 @@
                 </section>
             </article>
             
-
-
-
-
-
-
-
-
-
             <form action="#" class="formulario ocultar" id="formularioAgregar">
                 <h2>Registrar Datos</h2>
                 <input type="text" placeholder="Nit o Cédula" id="identificacion" name="identificacion">
@@ -64,6 +58,21 @@
                     <button id="cancelarEliminar">Cancelar</button>
                 </section>
             </form>
+
+            <form action="#" class="formulario ocultar" id="formularioEditar">
+                <h2>Editar Datos</h2>
+                <input type="text" placeholder="Nit o Cédula" id="identificacionEditar" name="identificacionEditar" readonly>
+                <input type="text" placeholder="Nombre" id="nombreEditar" name="nombreEditar">
+                <input type="text" placeholder="Direccion" id="direccionEditar" name="direccionEditar">
+                <input type="number" placeholder="Telefono" id="telefonoEditar" name="telefonoEditar">
+                <input type="email" placeholder="Correo" id="correoEditar" name="correoEditar">
+            
+                <section class="formulario__buttons">
+                    <button id="actualizarDatos" type="submit">Actualizar Registro</button>
+                    <button id="cancelarEditar">Cancelar</button>
+                </section>
+            </form>
+
     </main>
     <script src="js/datos.js"></script>
 </body>

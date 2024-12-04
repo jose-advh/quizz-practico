@@ -10,6 +10,8 @@ const formulario = document.getElementById('formularioAgregar');
 const formularioEliminar = document.getElementById('formularioEliminar');
 const botonEnviar = document.getElementById('enviarDatos');
 const botonEliminar = document.getElementById('eliminarDatosBtn'); 
+const botonActualizar = document.getElementById('editarDatos');
+const formularioEditar = document.getElementById('formularioEditar');
 
 function abrirModal(idModal) {
     document.getElementById(idModal).classList.remove('ocultar');
@@ -94,7 +96,7 @@ function abrirModalEditar(identificacion) {
         document.getElementById('direccion').value = dato.direccion;
         document.getElementById('telefono').value = dato.telefono;
         document.getElementById('correo').value = dato.correo;
-        abrirModal('formularioAgregar'); 
+        abrirModal('formularioEditar'); // Reutiliza el modal de agregar para editar
         botonEnviar.onclick = function(event) {
             actualizarDato(identificacion, event);
         };
@@ -128,5 +130,7 @@ modalAgregar.addEventListener('click', () => abrirModal('formularioAgregar'));
 modalEliminar.addEventListener('click', () => abrirModal('formularioEliminar'));
 botonEnviar.addEventListener('click', validarYEnviarDatos);
 botonEliminar.addEventListener('click', eliminarDato);
+botonActualizar.addEventListener('click', () => abrirModalEditar(identificacion));
+
 
 renderizarDatos();
